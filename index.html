@@ -22,52 +22,23 @@ header {
   margin-bottom: 20px;
   text-align: center;
 }
-.eyebrow {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: #FC7713;
-  margin-bottom: 6px;
-}
+.eyebrow { font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #FC7713; margin-bottom: 6px; }
 header h1 { font-size: 20px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
 header p { font-size: 13px; color: rgba(255,255,255,.55); }
+.slide-ref { display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; background: #FC7713; color: white; border-radius: 20px; padding: 2px 9px; margin-left: 8px; vertical-align: middle; }
 
 .section { margin-bottom: 16px; }
 .section-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 16px;
-  background: #fff;
-  border: 1px solid #e5e5e3;
-  border-radius: 12px;
-  cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  user-select: none;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 16px; background: #fff; border: 1px solid #e5e5e3;
+  border-radius: 12px; cursor: pointer; -webkit-tap-highlight-color: transparent; user-select: none;
 }
 .section-header.active { border-radius: 12px 12px 0 0; border-bottom: none; }
 .section-title { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
-.section-num {
-  width: 24px; height: 24px;
-  background: #FC7713;
-  color: white;
-  border-radius: 50%;
-  font-size: 12px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
+.section-num { width: 24px; height: 24px; background: #FC7713; color: white; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .chevron { font-size: 18px; color: #999; transition: transform 0.2s; }
 .chevron.open { transform: rotate(180deg); }
-
-.section-body {
-  display: none;
-  background: #fff;
-  border: 1px solid #e5e5e3;
-  border-top: none;
-  border-radius: 0 0 12px 12px;
-  padding: 16px;
-}
+.section-body { display: none; background: #fff; border: 1px solid #e5e5e3; border-top: none; border-radius: 0 0 12px 12px; padding: 16px; }
 .section-body.open { display: block; }
 
 /* Traffic light */
@@ -82,71 +53,29 @@ header p { font-size: 13px; color: rgba(255,255,255,.55); }
 .light.r .light-label { color: #CC3333; }
 .light-text { font-size: 13px; line-height: 1.55; }
 
-/* Prompt boxes */
-.prompt-label {
-  font-size: 11px; font-weight: 700;
-  text-transform: uppercase; letter-spacing: .08em;
-  color: #999; margin-bottom: 6px; margin-top: 14px;
-}
+/* Prompts */
+.prompt-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: #999; margin-bottom: 6px; margin-top: 14px; }
 .prompt-label:first-child { margin-top: 0; }
-.prompt-box {
-  background: #1a1a1a;
-  border-radius: 10px;
-  padding: 14px 16px;
-  font-family: 'Courier New', monospace;
-  font-size: 13px;
-  line-height: 1.8;
-  color: #ddd;
-  border-left: 3px solid #FC7713;
-  white-space: pre-wrap;
-  word-break: break-word;
-}
-.prompt-box .var { color: #FC7713; font-weight: 700; }
-.copy-btn {
-  display: block;
-  width: 100%;
-  margin-top: 8px;
-  padding: 9px;
-  background: #15659A;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 600;
-  cursor: pointer;
-  text-align: center;
-  -webkit-tap-highlight-color: transparent;
-}
+.prompt-box { background: #1a1a1a; border-radius: 10px; padding: 14px 16px; font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.8; color: #ddd; border-left: 3px solid #FC7713; white-space: pre-wrap; word-break: break-word; }
+.copy-btn { display: block; width: 100%; margin-top: 8px; padding: 9px; background: #15659A; color: white; border: none; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; -webkit-tap-highlight-color: transparent; }
 .copy-btn:active { background: #0f4a73; }
 .copy-btn.copied { background: #2E8B57; }
 
-/* Quick wins */
-.win { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
-.win:last-child { border-bottom: none; }
-.win-n {
-  width: 26px; height: 26px;
-  background: #15659A;
-  color: white; border-radius: 50%;
-  font-size: 12px; font-weight: 700;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0; margin-top: 1px;
-}
-.win-t { font-size: 14px; line-height: 1.45; }
-
-/* Tips list */
+/* Tips */
 .tip { font-size: 14px; line-height: 1.55; padding: 6px 0; border-bottom: 1px solid #f5f5f5; }
 .tip:last-child { border-bottom: none; }
 .tip strong { color: #15659A; }
 
-/* Tools */
+/* Wins */
+.win { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
+.win:last-child { border-bottom: none; }
+.win-n { width: 26px; height: 26px; background: #15659A; color: white; border-radius: 50%; font-size: 12px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.win-t { font-size: 14px; line-height: 1.45; }
+
 .tool-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; line-height: 1.5; }
 .tool-item:last-child { border-bottom: none; }
 .tool-item strong { color: #15659A; }
-
-/* Note */
 .note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.5; }
-
-/* Contact */
 .contact { font-size: 14px; line-height: 2; }
 .contact a { color: #15659A; font-weight: 600; text-decoration: none; }
 </style>
@@ -159,43 +88,16 @@ header p { font-size: 13px; color: rgba(255,255,255,.55); }
   <p>May 20, 2026 · UGA Gwinnett Campus · Lawrenceville, GA</p>
 </header>
 
-<!-- SECTION 1: Safety -->
+<!-- SECTION 1: Start Here / Demo -->
 <div class="section">
   <div class="section-header active" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">1</span> AI Safety Rules</div>
+    <div class="section-title"><span class="section-num">1</span> Start Here — Live Demo <span class="slide-ref">Slide 11</span></div>
     <div class="chevron open">&#8964;</div>
   </div>
   <div class="section-body open">
-    <div class="light g">
-      <div>
-        <div class="light-label">Green — Generally OK</div>
-        <div class="light-text">Brainstorming · Drafting generic communications · Rewriting for clarity · Summarizing public information · Creating checklists or templates</div>
-      </div>
-    </div>
-    <div class="light y">
-      <div>
-        <div class="light-label">Yellow — Use Caution</div>
-        <div class="light-text">Donor communications · Grant narratives · HR-related content · Program recommendations · Financial summaries</div>
-      </div>
-    </div>
-    <div class="light r">
-      <div>
-        <div class="light-label">Red — Do Not Use Without Approval</div>
-        <div class="light-text">Confidential donor data · Client case details · Medical or legal advice · Passwords or credentials · Sensitive employee information</div>
-      </div>
-    </div>
-    <p class="note">For sensitive work, use a paid account — paid plans generally have stronger data protections. When in doubt, ask your organization's leadership before using AI with sensitive information.</p>
-  </div>
-</div>
+    <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">The difference between a useful result and a useless one is almost always the prompt.</p>
 
-<!-- SECTION 2: Demo prompts -->
-<div class="section">
-  <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">2</span> Demo Prompts</div>
-    <div class="chevron">&#8964;</div>
-  </div>
-  <div class="section-body">
-    <div class="prompt-label">Weak prompt — what most people start with</div>
+    <div class="prompt-label">Weak prompt — what most people type</div>
     <div id="weak-prompt" class="prompt-box">Help me with a board meeting.</div>
     <button class="copy-btn" onclick="copyText('weak-prompt', this)">Copy</button>
 
@@ -213,17 +115,51 @@ Please help me:
 
 Do not invent facts. Ask clarifying questions if anything is unclear.</div>
     <button class="copy-btn" onclick="copyText('strong-prompt', this)">Copy Strong Prompt</button>
+
+    <div style="margin-top:14px; padding:10px 12px; background:#f8f9fa; border-radius:8px; border-left:3px solid #FC7713; font-size:13px; line-height:1.6; color:#444;">
+      <strong style="color:#FC7713;">The difference is not magic — it's context.</strong><br>
+      Tell AI who to be, what you need, who it's for, what format you want, and what not to make up.
+    </div>
   </div>
 </div>
 
-<!-- SECTION 3: Workshop prompt starters -->
+<!-- SECTION 2: Safety -->
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">3</span> Workshop Prompt Starters</div>
+    <div class="section-title"><span class="section-num">2</span> AI Safety Rules <span class="slide-ref">Slide 14</span></div>
     <div class="chevron">&#8964;</div>
   </div>
   <div class="section-body">
-    <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Pick the starter that fits your task. Fill in the brackets, then copy and paste.</p>
+    <div class="light g">
+      <div>
+        <div class="light-label">Green — Try it</div>
+        <div class="light-text">Brainstorming · Drafting generic communications · Rewriting for clarity · Summarizing public information · Creating checklists</div>
+      </div>
+    </div>
+    <div class="light y">
+      <div>
+        <div class="light-label">Yellow — Pause and review</div>
+        <div class="light-text">Donor communications · Grant narratives · HR-related content · Program recommendations · Financial summaries</div>
+      </div>
+    </div>
+    <div class="light r">
+      <div>
+        <div class="light-label">Red — Do not paste</div>
+        <div class="light-text">Confidential donor data · Client case details · Medical or legal advice · Passwords or credentials · Sensitive employee information</div>
+      </div>
+    </div>
+    <p class="note">Paid accounts (~$20/mo) have stronger data protections. When in doubt, ask your leadership before using AI with sensitive information.</p>
+  </div>
+</div>
+
+<!-- SECTION 3: Workshop prompts -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">3</span> Hands-On Prompt Starters <span class="slide-ref">Slide 22</span></div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <p style="font-size:13px; color:#888; margin-bottom:12px;">Your first prompt doesn't need to be perfect. The goal is to make it better than "help me with this."</p>
 
     <div class="prompt-label">For writing &amp; communications</div>
     <div id="writing-prompt" class="prompt-box">I run a nonprofit that [brief description]. Write me [specific thing] for [specific audience]. Tone should be [warm/professional/urgent]. Length: about [X] words.</div>
@@ -244,11 +180,23 @@ Do not invent facts. Ask clarifying questions if anything is unclear.</div>
 3. Flag any unresolved questions</div>
     <button class="copy-btn" onclick="copyText('summary-prompt', this)">Copy</button>
 
+    <div class="prompt-label" style="margin-top:14px;">For donor thank-you emails</div>
+    <div id="donor-prompt" class="prompt-box">Help me draft a warm donor thank-you email. Use this information: [add donation context, campaign, or impact]. Keep it sincere, concise, and human. Do not invent specific results or numbers.</div>
+    <button class="copy-btn" onclick="copyText('donor-prompt', this)">Copy</button>
+
+    <div class="prompt-label" style="margin-top:14px;">For volunteer onboarding</div>
+    <div id="volunteer-prompt" class="prompt-box">Act as a volunteer coordinator for a small nonprofit. Create a simple onboarding checklist for new volunteers. Include what they need before, during, and after their first shift. Make it practical and easy to follow.</div>
+    <button class="copy-btn" onclick="copyText('volunteer-prompt', this)">Copy</button>
+
+    <div class="prompt-label" style="margin-top:14px;">For thinking through a decision</div>
+    <div id="thinking-prompt" class="prompt-box">Act as a thoughtful decision partner. I am considering [decision]. Help me think through options, risks, tradeoffs, people affected, and next steps. Ask clarifying questions before giving a recommendation.</div>
+    <button class="copy-btn" onclick="copyText('thinking-prompt', this)">Copy</button>
+
     <div style="margin-top:16px; padding:12px; background:#f8f9fa; border-radius:8px; border-left:3px solid #15659A;">
       <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#15659A; margin-bottom:6px;">Keys to a good prompt</div>
       <div class="tip"><strong>Give context:</strong> Who you are, what your org does, who the audience is</div>
       <div class="tip"><strong>Be specific:</strong> Length, tone, format, what to include or avoid</div>
-      <div class="tip"><strong>Iterate:</strong> If it's 70% right, ask AI to refine it — don't start over</div>
+      <div class="tip"><strong>Iterate:</strong> If it's 70% right, ask AI to refine — don't start over</div>
       <div class="tip"><strong>Ask follow-ups:</strong> "Make it shorter." "Change the tone." "Add a call to action."</div>
     </div>
   </div>
@@ -257,14 +205,14 @@ Do not invent facts. Ask clarifying questions if anything is unclear.</div>
 <!-- SECTION 4: Quick wins -->
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">4</span> 5 Things to Try This Week</div>
+    <div class="section-title"><span class="section-num">4</span> 5 Things to Try This Week <span class="slide-ref">Slide 24</span></div>
     <div class="chevron">&#8964;</div>
   </div>
   <div class="section-body">
     <div class="win"><div class="win-n">1</div><div class="win-t">Paste your last board meeting notes into an AI tool. Ask it to summarize key decisions and extract all action items with owners.</div></div>
     <div class="win"><div class="win-n">2</div><div class="win-t">Draft three versions of your next newsletter opening paragraph — then pick your favorite and edit it into your voice.</div></div>
     <div class="win"><div class="win-n">3</div><div class="win-t">Research what similar organizations in your sector are doing to solve a challenge you're currently facing.</div></div>
-    <div class="win"><div class="win-n">4</div><div class="win-t">Ask AI to help you think through a decision you've been sitting on — describe the situation and ask it to help you identify what's really at stake.</div></div>
+    <div class="win"><div class="win-n">4</div><div class="win-t">Ask AI to help you think through a decision you've been sitting on — describe the situation and ask it to help identify what's really at stake.</div></div>
     <div class="win"><div class="win-n">5</div><div class="win-t">Create a volunteer onboarding checklist by describing your current informal process and asking AI to turn it into a structured document.</div></div>
     <p class="note" style="margin-top:12px; font-style:italic;">Pick one. Do it before Friday. Learning happens by doing — not by watching.</p>
   </div>
@@ -273,17 +221,17 @@ Do not invent facts. Ask clarifying questions if anything is unclear.</div>
 <!-- SECTION 5: Tools -->
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">5</span> Recommended Tools</div>
+    <div class="section-title"><span class="section-num">5</span> Recommended Tools <span class="slide-ref">Slide 17</span></div>
     <div class="chevron">&#8964;</div>
   </div>
   <div class="section-body">
     <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Start with whatever you already have access to. Don't start by shopping for new apps.</p>
-    <div class="tool-item"><strong>Microsoft Copilot</strong> — copilot.microsoft.com · Included in many M365 plans. Best if your org is already on Microsoft.</div>
-    <div class="tool-item"><strong>ChatGPT</strong> — chatgpt.com · Free tier available. Most widely used. Huge library of tutorials.</div>
-    <div class="tool-item"><strong>Claude</strong> — claude.ai · Free tier available. Strong for writing and analysis.</div>
-    <div class="tool-item"><strong>Perplexity</strong> — perplexity.ai · Free tier available. Great for research with cited sources.</div>
-    <div class="tool-item"><strong>Google Gemini</strong> — gemini.google.com · Free with Google. Integrates with Google Workspace.</div>
-    <p class="note">Paid accounts (~$20/mo) have stronger data privacy protections. Worth it if you use AI regularly for organizational work.</p>
+    <div class="tool-item"><strong>Microsoft Copilot</strong> — copilot.microsoft.com · Included in many M365 plans.</div>
+    <div class="tool-item"><strong>ChatGPT</strong> — chatgpt.com · Free tier. Most widely used.</div>
+    <div class="tool-item"><strong>Claude</strong> — claude.ai · Free tier. Strong for writing and analysis.</div>
+    <div class="tool-item"><strong>Perplexity</strong> — perplexity.ai · Free tier. Great for research with sources.</div>
+    <div class="tool-item"><strong>Google Gemini</strong> — gemini.google.com · Free with Google Workspace.</div>
+    <p class="note">Paid accounts (~$20/mo) have stronger data protections — worth it for regular organizational use.</p>
   </div>
 </div>
 
@@ -320,13 +268,9 @@ function copyText(id, btn) {
     const orig = btn.textContent;
     btn.textContent = 'Copied!';
     btn.classList.add('copied');
-    setTimeout(() => {
-      btn.textContent = orig;
-      btn.classList.remove('copied');
-    }, 2000);
+    setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
   });
 }
 </script>
-
 </body>
 </html>
