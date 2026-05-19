@@ -133,6 +133,11 @@ header p { font-size: 13px; color: rgba(255,255,255,.55); }
 }
 .win-t { font-size: 14px; line-height: 1.45; }
 
+/* Tips list */
+.tip { font-size: 14px; line-height: 1.55; padding: 6px 0; border-bottom: 1px solid #f5f5f5; }
+.tip:last-child { border-bottom: none; }
+.tip strong { color: #15659A; }
+
 /* Tools */
 .tool-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; line-height: 1.5; }
 .tool-item:last-child { border-bottom: none; }
@@ -164,7 +169,7 @@ header p { font-size: 13px; color: rgba(255,255,255,.55); }
     <div class="light g">
       <div>
         <div class="light-label">Green — Generally OK</div>
-        <div class="light-text">Brainstorming · Drafting generic communications · Rewriting for clarity · Summarizing public information · Creating checklists</div>
+        <div class="light-text">Brainstorming · Drafting generic communications · Rewriting for clarity · Summarizing public information · Creating checklists or templates</div>
       </div>
     </div>
     <div class="light y">
@@ -183,39 +188,18 @@ header p { font-size: 13px; color: rgba(255,255,255,.55); }
   </div>
 </div>
 
-<!-- SECTION 2: Prompt template -->
+<!-- SECTION 2: Demo prompts -->
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">2</span> Reusable Prompt Template</div>
+    <div class="section-title"><span class="section-num">2</span> Demo Prompts</div>
     <div class="chevron">&#8964;</div>
   </div>
   <div class="section-body">
-    <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Fill in the brackets, then copy and paste into ChatGPT, Claude, or Copilot.</p>
-    <div id="template-box" class="prompt-box">Act as a [role].
-I work for a small nonprofit that [brief context about your org].
-I need help with [specific task].
-The audience is [who will see this].
-Use this information: [relevant details].
-Create [specific output — e.g., a 3-paragraph email, a bulleted list].
-Use a tone that is [tone — e.g., warm, professional, urgent].
-Ask me questions if anything is unclear.
-Do not invent facts.</div>
-    <button class="copy-btn" onclick="copyText('template-box', this)">Copy Prompt Template</button>
-  </div>
-</div>
-
-<!-- SECTION 3: Demo prompts -->
-<div class="section">
-  <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">3</span> Demo Prompts</div>
-    <div class="chevron">&#8964;</div>
-  </div>
-  <div class="section-body">
-    <div class="prompt-label">Weak prompt (what most people start with)</div>
+    <div class="prompt-label">Weak prompt — what most people start with</div>
     <div id="weak-prompt" class="prompt-box">Help me with a board meeting.</div>
     <button class="copy-btn" onclick="copyText('weak-prompt', this)">Copy</button>
 
-    <div class="prompt-label" style="margin-top:16px;">Strong prompt (what you get with context)</div>
+    <div class="prompt-label" style="margin-top:16px;">Strong prompt — with context and specifics</div>
     <div id="strong-prompt" class="prompt-box">Act as an experienced nonprofit executive assistant.
 
 I'm preparing for a board meeting for a small nonprofit that provides after-school tutoring for low-income students in the Atlanta area.
@@ -232,18 +216,57 @@ Do not invent facts. Ask clarifying questions if anything is unclear.</div>
   </div>
 </div>
 
-<!-- SECTION 4: Quick wins -->
+<!-- SECTION 3: Workshop prompt starters -->
 <div class="section">
   <div class="section-header" onclick="toggle(this)">
-    <div class="section-title"><span class="section-num">4</span> Five Quick Wins This Week</div>
+    <div class="section-title"><span class="section-num">3</span> Workshop Prompt Starters</div>
     <div class="chevron">&#8964;</div>
   </div>
   <div class="section-body">
-    <div class="win"><div class="win-n">1</div><div class="win-t">Turn board meeting notes into a summary of decisions and action items</div></div>
-    <div class="win"><div class="win-n">2</div><div class="win-t">Draft a donor thank-you email or newsletter article</div></div>
-    <div class="win"><div class="win-n">3</div><div class="win-t">Create a volunteer onboarding checklist</div></div>
-    <div class="win"><div class="win-n">4</div><div class="win-t">Summarize survey comments or community feedback into key themes</div></div>
-    <div class="win"><div class="win-n">5</div><div class="win-t">Use AI as a thinking partner before a difficult decision or conversation</div></div>
+    <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Pick the starter that fits your task. Fill in the brackets, then copy and paste.</p>
+
+    <div class="prompt-label">For writing &amp; communications</div>
+    <div id="writing-prompt" class="prompt-box">I run a nonprofit that [brief description]. Write me [specific thing] for [specific audience]. Tone should be [warm/professional/urgent]. Length: about [X] words.</div>
+    <button class="copy-btn" onclick="copyText('writing-prompt', this)">Copy</button>
+
+    <div class="prompt-label" style="margin-top:14px;">For decision-making</div>
+    <div id="decision-prompt" class="prompt-box">I'm the [role] of [org type]. I'm trying to decide [decision]. The options are [A] and [B]. Help me think through the tradeoffs and what questions I should be asking.</div>
+    <button class="copy-btn" onclick="copyText('decision-prompt', this)">Copy</button>
+
+    <div class="prompt-label" style="margin-top:14px;">For research</div>
+    <div id="research-prompt" class="prompt-box">What are best practices for [topic] among small nonprofits? I'm specifically interested in [angle]. Give me 5 concrete examples with brief explanations.</div>
+    <button class="copy-btn" onclick="copyText('research-prompt', this)">Copy</button>
+
+    <div class="prompt-label" style="margin-top:14px;">For summarizing notes or documents</div>
+    <div id="summary-prompt" class="prompt-box">Here are my notes from [meeting/document]. Please:
+1. Summarize the key decisions
+2. List all action items with owners
+3. Flag any unresolved questions</div>
+    <button class="copy-btn" onclick="copyText('summary-prompt', this)">Copy</button>
+
+    <div style="margin-top:16px; padding:12px; background:#f8f9fa; border-radius:8px; border-left:3px solid #15659A;">
+      <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:#15659A; margin-bottom:6px;">Keys to a good prompt</div>
+      <div class="tip"><strong>Give context:</strong> Who you are, what your org does, who the audience is</div>
+      <div class="tip"><strong>Be specific:</strong> Length, tone, format, what to include or avoid</div>
+      <div class="tip"><strong>Iterate:</strong> If it's 70% right, ask AI to refine it — don't start over</div>
+      <div class="tip"><strong>Ask follow-ups:</strong> "Make it shorter." "Change the tone." "Add a call to action."</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: Quick wins -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">4</span> 5 Things to Try This Week</div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <div class="win"><div class="win-n">1</div><div class="win-t">Paste your last board meeting notes into an AI tool. Ask it to summarize key decisions and extract all action items with owners.</div></div>
+    <div class="win"><div class="win-n">2</div><div class="win-t">Draft three versions of your next newsletter opening paragraph — then pick your favorite and edit it into your voice.</div></div>
+    <div class="win"><div class="win-n">3</div><div class="win-t">Research what similar organizations in your sector are doing to solve a challenge you're currently facing.</div></div>
+    <div class="win"><div class="win-n">4</div><div class="win-t">Ask AI to help you think through a decision you've been sitting on — describe the situation and ask it to help you identify what's really at stake.</div></div>
+    <div class="win"><div class="win-n">5</div><div class="win-t">Create a volunteer onboarding checklist by describing your current informal process and asking AI to turn it into a structured document.</div></div>
+    <p class="note" style="margin-top:12px; font-style:italic;">Pick one. Do it before Friday. Learning happens by doing — not by watching.</p>
   </div>
 </div>
 
@@ -255,11 +278,12 @@ Do not invent facts. Ask clarifying questions if anything is unclear.</div>
   </div>
   <div class="section-body">
     <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Start with whatever you already have access to. Don't start by shopping for new apps.</p>
-    <div class="tool-item"><strong>Microsoft Copilot</strong> — Included in many M365 plans. Best if your org is already on Microsoft.</div>
-    <div class="tool-item"><strong>ChatGPT</strong> — chatgpt.com · Free tier available. Most widely used.</div>
+    <div class="tool-item"><strong>Microsoft Copilot</strong> — copilot.microsoft.com · Included in many M365 plans. Best if your org is already on Microsoft.</div>
+    <div class="tool-item"><strong>ChatGPT</strong> — chatgpt.com · Free tier available. Most widely used. Huge library of tutorials.</div>
     <div class="tool-item"><strong>Claude</strong> — claude.ai · Free tier available. Strong for writing and analysis.</div>
-    <div class="tool-item"><strong>Google Gemini</strong> — gemini.google.com · Free tier available. Integrates with Google Workspace.</div>
-    <p class="note">Paid accounts ($20/mo) have stronger data privacy protections. Worth it if you use AI regularly.</p>
+    <div class="tool-item"><strong>Perplexity</strong> — perplexity.ai · Free tier available. Great for research with cited sources.</div>
+    <div class="tool-item"><strong>Google Gemini</strong> — gemini.google.com · Free with Google. Integrates with Google Workspace.</div>
+    <p class="note">Paid accounts (~$20/mo) have stronger data privacy protections. Worth it if you use AI regularly for organizational work.</p>
   </div>
 </div>
 
@@ -272,9 +296,10 @@ Do not invent facts. Ask clarifying questions if anything is unclear.</div>
   <div class="section-body">
     <div class="contact">
       <div><strong>Matt Hyatt</strong>, CEO — Rocket IT</div>
-      <div><a href="https://www.rocketit.com">rocketit.com</a></div>
       <div><a href="mailto:mhyatt@rocketit.com">mhyatt@rocketit.com</a></div>
+      <div><a href="https://www.rocketit.com">rocketit.com</a></div>
     </div>
+    <p class="note" style="margin-top:12px;">Want the slides or playbook? Email Matt and he'll send you both, plus a one-page AI quick-start checklist for nonprofits.</p>
   </div>
 </div>
 
@@ -292,11 +317,11 @@ function copyText(id, btn) {
   const el = document.getElementById(id);
   const text = el.innerText || el.textContent;
   navigator.clipboard.writeText(text).then(() => {
+    const orig = btn.textContent;
     btn.textContent = 'Copied!';
     btn.classList.add('copied');
     setTimeout(() => {
-      btn.textContent = btn.textContent.includes('Template') ? 'Copy Prompt Template' :
-                        id === 'strong-prompt' ? 'Copy Strong Prompt' : 'Copy';
+      btn.textContent = orig;
       btn.classList.remove('copied');
     }, 2000);
   });
