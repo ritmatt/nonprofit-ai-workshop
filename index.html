@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practical AI for Nonprofits — Rocket IT</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  background: #f7f7f5;
+  color: #1a1a1a;
+  padding: 16px;
+  max-width: 520px;
+  margin: 0 auto;
+}
+header {
+  background: #171411;
+  color: white;
+  border-radius: 14px;
+  padding: 24px 20px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #FC7713;
+  margin-bottom: 6px;
+}
+header h1 { font-size: 20px; font-weight: 700; line-height: 1.2; margin-bottom: 6px; }
+header p { font-size: 13px; color: rgba(255,255,255,.55); }
+
+.section { margin-bottom: 16px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid #e5e5e3;
+  border-radius: 12px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+.section-header.active { border-radius: 12px 12px 0 0; border-bottom: none; }
+.section-title { font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+.section-num {
+  width: 24px; height: 24px;
+  background: #FC7713;
+  color: white;
+  border-radius: 50%;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.chevron { font-size: 18px; color: #999; transition: transform 0.2s; }
+.chevron.open { transform: rotate(180deg); }
+
+.section-body {
+  display: none;
+  background: #fff;
+  border: 1px solid #e5e5e3;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 16px;
+}
+.section-body.open { display: block; }
+
+/* Traffic light */
+.light { display: flex; gap: 10px; padding: 10px 12px; border-radius: 8px; margin-bottom: 8px; }
+.light:last-child { margin-bottom: 0; }
+.light.g { background: #F0FFF4; border-left: 3px solid #2E8B57; }
+.light.y { background: #FFFBF0; border-left: 3px solid #E6A817; }
+.light.r { background: #FFF0F0; border-left: 3px solid #CC3333; }
+.light-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 3px; }
+.light.g .light-label { color: #2E8B57; }
+.light.y .light-label { color: #c18a00; }
+.light.r .light-label { color: #CC3333; }
+.light-text { font-size: 13px; line-height: 1.55; }
+
+/* Prompt boxes */
+.prompt-label {
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .08em;
+  color: #999; margin-bottom: 6px; margin-top: 14px;
+}
+.prompt-label:first-child { margin-top: 0; }
+.prompt-box {
+  background: #1a1a1a;
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #ddd;
+  border-left: 3px solid #FC7713;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.prompt-box .var { color: #FC7713; font-weight: 700; }
+.copy-btn {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+  padding: 9px;
+  background: #15659A;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+.copy-btn:active { background: #0f4a73; }
+.copy-btn.copied { background: #2E8B57; }
+
+/* Quick wins */
+.win { display: flex; gap: 12px; padding: 10px 0; border-bottom: 1px solid #f0f0f0; align-items: flex-start; }
+.win:last-child { border-bottom: none; }
+.win-n {
+  width: 26px; height: 26px;
+  background: #15659A;
+  color: white; border-radius: 50%;
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.win-t { font-size: 14px; line-height: 1.45; }
+
+/* Tools */
+.tool-item { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; line-height: 1.5; }
+.tool-item:last-child { border-bottom: none; }
+.tool-item strong { color: #15659A; }
+
+/* Note */
+.note { font-size: 12px; color: #888; margin-top: 12px; line-height: 1.5; }
+
+/* Contact */
+.contact { font-size: 14px; line-height: 2; }
+.contact a { color: #15659A; font-weight: 600; text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Rocket IT Workshop Resources</div>
+  <h1>Practical AI for Nonprofits</h1>
+  <p>May 20, 2026 · UGA Gwinnett Campus · Lawrenceville, GA</p>
+</header>
+
+<!-- SECTION 1: Safety -->
+<div class="section">
+  <div class="section-header active" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">1</span> AI Safety Rules</div>
+    <div class="chevron open">&#8964;</div>
+  </div>
+  <div class="section-body open">
+    <div class="light g">
+      <div>
+        <div class="light-label">Green — Generally OK</div>
+        <div class="light-text">Brainstorming · Drafting generic communications · Rewriting for clarity · Summarizing public information · Creating checklists</div>
+      </div>
+    </div>
+    <div class="light y">
+      <div>
+        <div class="light-label">Yellow — Use Caution</div>
+        <div class="light-text">Donor communications · Grant narratives · HR-related content · Program recommendations · Financial summaries</div>
+      </div>
+    </div>
+    <div class="light r">
+      <div>
+        <div class="light-label">Red — Do Not Use Without Approval</div>
+        <div class="light-text">Confidential donor data · Client case details · Medical or legal advice · Passwords or credentials · Sensitive employee information</div>
+      </div>
+    </div>
+    <p class="note">For sensitive work, use a paid account — paid plans generally have stronger data protections. When in doubt, ask your organization's leadership before using AI with sensitive information.</p>
+  </div>
+</div>
+
+<!-- SECTION 2: Prompt template -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">2</span> Reusable Prompt Template</div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Fill in the brackets, then copy and paste into ChatGPT, Claude, or Copilot.</p>
+    <div id="template-box" class="prompt-box">Act as a [role].
+I work for a small nonprofit that [brief context about your org].
+I need help with [specific task].
+The audience is [who will see this].
+Use this information: [relevant details].
+Create [specific output — e.g., a 3-paragraph email, a bulleted list].
+Use a tone that is [tone — e.g., warm, professional, urgent].
+Ask me questions if anything is unclear.
+Do not invent facts.</div>
+    <button class="copy-btn" onclick="copyText('template-box', this)">Copy Prompt Template</button>
+  </div>
+</div>
+
+<!-- SECTION 3: Demo prompts -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">3</span> Demo Prompts</div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <div class="prompt-label">Weak prompt (what most people start with)</div>
+    <div id="weak-prompt" class="prompt-box">Help me with a board meeting.</div>
+    <button class="copy-btn" onclick="copyText('weak-prompt', this)">Copy</button>
+
+    <div class="prompt-label" style="margin-top:16px;">Strong prompt (what you get with context)</div>
+    <div id="strong-prompt" class="prompt-box">Act as an experienced nonprofit executive assistant.
+
+I'm preparing for a board meeting for a small nonprofit that provides after-school tutoring for low-income students in the Atlanta area.
+
+The board cares most about: donor retention, program outcomes, and volunteer capacity.
+
+Please help me:
+1. Organize a clear meeting agenda
+2. Identify the key decisions the board needs to make
+3. Draft a short follow-up summary template for after the meeting
+
+Do not invent facts. Ask clarifying questions if anything is unclear.</div>
+    <button class="copy-btn" onclick="copyText('strong-prompt', this)">Copy Strong Prompt</button>
+  </div>
+</div>
+
+<!-- SECTION 4: Quick wins -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">4</span> Five Quick Wins This Week</div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <div class="win"><div class="win-n">1</div><div class="win-t">Turn board meeting notes into a summary of decisions and action items</div></div>
+    <div class="win"><div class="win-n">2</div><div class="win-t">Draft a donor thank-you email or newsletter article</div></div>
+    <div class="win"><div class="win-n">3</div><div class="win-t">Create a volunteer onboarding checklist</div></div>
+    <div class="win"><div class="win-n">4</div><div class="win-t">Summarize survey comments or community feedback into key themes</div></div>
+    <div class="win"><div class="win-n">5</div><div class="win-t">Use AI as a thinking partner before a difficult decision or conversation</div></div>
+  </div>
+</div>
+
+<!-- SECTION 5: Tools -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">5</span> Recommended Tools</div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">Start with whatever you already have access to. Don't start by shopping for new apps.</p>
+    <div class="tool-item"><strong>Microsoft Copilot</strong> — Included in many M365 plans. Best if your org is already on Microsoft.</div>
+    <div class="tool-item"><strong>ChatGPT</strong> — chatgpt.com · Free tier available. Most widely used.</div>
+    <div class="tool-item"><strong>Claude</strong> — claude.ai · Free tier available. Strong for writing and analysis.</div>
+    <div class="tool-item"><strong>Google Gemini</strong> — gemini.google.com · Free tier available. Integrates with Google Workspace.</div>
+    <p class="note">Paid accounts ($20/mo) have stronger data privacy protections. Worth it if you use AI regularly.</p>
+  </div>
+</div>
+
+<!-- SECTION 6: Contact -->
+<div class="section">
+  <div class="section-header" onclick="toggle(this)">
+    <div class="section-title"><span class="section-num">6</span> Questions? Stay in Touch</div>
+    <div class="chevron">&#8964;</div>
+  </div>
+  <div class="section-body">
+    <div class="contact">
+      <div><strong>Matt Hyatt</strong>, CEO — Rocket IT</div>
+      <div><a href="https://www.rocketit.com">rocketit.com</a></div>
+      <div><a href="mailto:mhyatt@rocketit.com">mhyatt@rocketit.com</a></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggle(header) {
+  const body = header.nextElementSibling;
+  const chevron = header.querySelector('.chevron');
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  header.classList.toggle('active', !isOpen);
+  chevron.classList.toggle('open', !isOpen);
+}
+
+function copyText(id, btn) {
+  const el = document.getElementById(id);
+  const text = el.innerText || el.textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => {
+      btn.textContent = btn.textContent.includes('Template') ? 'Copy Prompt Template' :
+                        id === 'strong-prompt' ? 'Copy Strong Prompt' : 'Copy';
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+
+</body>
+</html>
