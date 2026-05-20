@@ -99,34 +99,24 @@ header p { font-size: 13px; color: rgba(255,255,255,.55); }
     <p style="font-size:14px; margin-bottom:12px; line-height:1.5;">The difference between a useful result and a useless one is almost always the prompt.</p>
 
     <div class="prompt-label">Weak prompt — what most people type</div>
-    <div id="weak-prompt" class="prompt-box">Help me with a board meeting.</div>
+    <div id="weak-prompt" class="prompt-box">Write a fundraising email for our nonprofit.</div>
     <button class="copy-btn" onclick="copyText('weak-prompt', this)">Copy</button>
 
     <div class="prompt-label" style="margin-top:16px;">Strong prompt — with context and specifics</div>
-    <div id="strong-prompt" class="prompt-box">Act as an experienced nonprofit executive assistant.
-
-I'm preparing for a board meeting for a small nonprofit that provides after-school tutoring for low-income students in the Atlanta area.
-
-The board cares most about: donor retention, program outcomes, and volunteer capacity.
-
-Please help me:
-1. Organize a clear meeting agenda
-2. Identify the key decisions the board needs to make
-3. Draft a short follow-up summary template for after the meeting
-
-Do not invent facts. Ask clarifying questions if anything is unclear.</div>
+    <div id="strong-prompt" class="prompt-box">Write a 3-paragraph fundraising email for a small after-school tutoring program. Audience: donors who gave $100–$500 last year. Our program grew from 140 to 200 students this year, but 60 kids are on a waitlist. We need renewals by June 30 to fund next semester. Tone: personal and urgent, not corporate. Avoid clichés like "changing lives" or "making a difference." End with a specific renewal ask.</div>
     <button class="copy-btn" onclick="copyText('strong-prompt', this)">Copy Strong Prompt</button>
 
     <div style="margin-top:14px; padding:12px 14px; background:#f8f9fa; border-radius:8px; border-left:3px solid #FC7713; font-size:13px; line-height:1.6; color:#444;">
       <strong style="color:#FC7713; display:block; margin-bottom:8px;">What changed?</strong>
       <div style="display:flex; flex-direction:column; gap:6px;">
-        <div>✅ <strong>Role</strong> — "Act as an experienced nonprofit executive assistant"</div>
-        <div>✅ <strong>Context</strong> — org type, mission, location</div>
-        <div>✅ <strong>Audience</strong> — what the board cares about</div>
-        <div>✅ <strong>Specific outputs</strong> — agenda, decisions, follow-up template</div>
-        <div>✅ <strong>Guardrails</strong> — "Do not invent facts. Ask if unclear."</div>
+        <div>✅ <strong>Specific audience</strong> — donors who gave $100–$500 last year</div>
+        <div>✅ <strong>Concrete numbers</strong> — 140→200 students, 60 on waitlist</div>
+        <div>✅ <strong>Tone guidance</strong> — personal and urgent, not corporate</div>
+        <div>✅ <strong>Hard deadline</strong> — renewals by June 30</div>
+        <div>✅ <strong>What to avoid</strong> — specific clichés called out</div>
+        <div>✅ <strong>Specific output</strong> — end with a renewal ask</div>
       </div>
-      <div style="margin-top:8px; padding-top:8px; border-top:1px solid #e5e5e3;">The difference is not magic — it's context.</div>
+      <div style="margin-top:8px; padding-top:8px; border-top:1px solid #e5e5e3;">Vague prompt = a form letter you still have to fill in. Specific prompt = something you could send today.</div>
     </div>
   </div>
 </div>
